@@ -1,0 +1,98 @@
+
+<div class="row mt-5">
+  <div class="col-md-6 d-flex justify-content-center">
+    <mat-card class="">
+      <mat-card-content>
+        <h1 class="text-center fw-bold">Consultar</h1>
+        <!-- craando formulario -->
+        <form [formGroup]="formulario" action="" autocomplete="off" >
+
+          <mat-form-field appearance="outline" class="mb-2">
+            <mat-label>Monto</mat-label>
+            <input matInput formControlName="monto"/>
+            <mat-icon matSuffix>attach_money</mat-icon>
+            <mat-error>
+              <ng-container *ngIf="controlHasError('monto', 'required')">
+                Este campo es obligatorio
+              </ng-container>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="ms-3">
+            <mat-label>Moneda Origen</mat-label>
+            <mat-select formControlName="monedaOrigen">
+              <mat-option *ngFor="let origen of monedaOrigen" [value]="origen.value">
+                {{origen.value}}
+              </mat-option>
+            </mat-select>
+            <mat-error>
+              <ng-container *ngIf="controlHasError('monedaOrigen', 'required')">
+                Este campo es obligatorio
+              </ng-container>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="ms-3">
+            <mat-label>Moneda Origen</mat-label>
+            <mat-select formControlName="monedaDestino">
+              <mat-option *ngFor="let destino of monedaDestino" [value]="destino.value">
+                {{destino.value}}
+              </mat-option>
+            </mat-select>
+            <mat-error>
+              <ng-container *ngIf="controlHasError('monedaDestino', 'required')">
+                Este campo es obligatorio
+              </ng-container>
+            </mat-error>
+          </mat-form-field>
+          <button mat-raised-button (click)="consultar()"
+          color="primary" class="w-100">Ingresar</button>
+        </form>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col-md-6 d-flex justify-content-center">
+    <mat-card class="me-5">
+      <mat-card-content>
+        <h1 class="text-center fw-bold">Resultado</h1>
+        <!-- craando formulario -->
+        <form [formGroup]="formulario" action="" autocomplete="off">
+
+            <mat-form-field appearance="outline" class="mb-2" >
+              <mat-label>Monto</mat-label>
+              <input matInput type="" [disabled]="true" formControlName="monto"/>
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="ms-3">
+              <mat-label>Moneda Origen</mat-label>
+              <input matInput type="" [disabled]="true" formControlName="monedaOrigen"/>
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="">
+              <mat-label>Moneda Destino</mat-label>
+              <input matInput type="" [disabled]="true" formControlName="monedaDestino"/>
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="ms-3">
+              <mat-label>Monto con Tipo Cambio</mat-label>
+              <input matInput type="" [disabled]="true" formControlName="montoConTipoCambio"/>
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="">
+              <mat-label>Tipo Cambio</mat-label>
+              <input matInput type="" [disabled]="true" formControlName="tipoCambio"/>
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+        </form>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

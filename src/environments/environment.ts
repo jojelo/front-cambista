@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiBase: 'http://localhost:8092/api/v1/cambista',
+  //apiBase: 'https://jojelo-ideal-cod-55pqr95575jfvrq6-80.preview.app.github.dev/api/v1/cambista',
+  apiLogin: 'http://localhost:8092/api/v1/auth/authenticate'
 };
 
 /*

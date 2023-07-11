@@ -1,0 +1,39 @@
+
+  <div class="col-md d-flex justify-content-center">
+    <mat-card class="mt-4">
+      <mat-card-content>
+        <h1 class="text-center fw-bold">Actualizar monto</h1>
+        <!-- craando formulario -->
+        <form [formGroup]="formulario" action="" autocomplete="off">
+
+          <mat-form-field class="ms-3">
+            <mat-label>Tipo de cambio</mat-label>
+            <mat-select formControlName="id">
+              <mat-option *ngFor="let valor of valorActual" [value]="valor.id">
+                {{valor.value}}
+              </mat-option>
+            </mat-select>
+            <mat-error>
+              <ng-container *ngIf="controlHasError('id', 'required')">
+                Este campo es obligatorio
+              </ng-container>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="ms-5">
+            <mat-label>Monto</mat-label>
+            <input matInput formControlName="monto"/>
+            <mat-icon matSuffix>attach_money</mat-icon>
+            <mat-error>
+              <ng-container *ngIf="controlHasError('monto', 'required')">
+                Este campo es obligatorio
+              </ng-container>
+            </mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button (click)="actualizarData()" color="primary" class="w-100 mt-3">Ingresar</button>
+        </form>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
